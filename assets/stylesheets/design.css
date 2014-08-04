@@ -57,7 +57,7 @@
 }
 
 .login input[type="submit"].ios {
-	width: 157px;
+	margin-left: 2px;
 }
 
 .panel {
