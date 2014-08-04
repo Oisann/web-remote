@@ -10,8 +10,8 @@ if(!guid){
 
 document.body.addEventListener('touchmove', function(event) {
 	console.log(event.source);
-	//if (event.source == document.body)
-	event.preventDefault();
+	if(event.source !== $('.content'))
+		event.preventDefault();
 }, false);
 
 window.onresize = function() {
