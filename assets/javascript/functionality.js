@@ -8,10 +8,15 @@ if(!guid){
 	localStorage.setItem('guid', guid);
 }
 
-document.body.addEventListener('touchmove', function(event) {
-	event.stopPropagation();
-	event.preventDefault();
-}, false);
+$('body').on('touchmove', function (e) {
+    var target = $(e.target);
+
+    if (target.hasClass('content')) {
+        
+    } else {
+        e.preventDefault();
+    }
+});
 
 window.onresize = function() {
 	$(document.body).width(window.innerWidth).height(window.innerHeight);
