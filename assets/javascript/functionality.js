@@ -1,7 +1,8 @@
 ﻿if (("oisann.github.io" == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
 var socket = io.connect('http://130.185.155.130:32236/'),
 	guid = localStorage.getItem('guid'),
-	loginToken = localStorage.getItem('loginToken');
+	loginToken = localStorage.getItem('loginToken'),
+	newscroll = new IScroll('#content');
 
 if(!guid){
 	guid = createGuid();
@@ -9,13 +10,7 @@ if(!guid){
 }
 
 $('body').on('touchmove', function (e) {
-    var target = $(e.target);
-
-    if (target.hasClass('content')) {
-        
-    } else {
-        e.preventDefault();
-    }
+	e.preventDefault();
 });
 
 window.onresize = function() {
