@@ -28,7 +28,7 @@ var snapper = new Snap({
 });
 
 function sendStatusUpdate() {
-	if(guid) return;
+	if(!guid) return;
 	var data = {
 		guid: guid,
 		loginToken: loginToken
