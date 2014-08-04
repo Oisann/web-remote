@@ -1,6 +1,18 @@
 ﻿var host = "oisann.github.io",
-	socket = io.connect('http://185.3.135.178:32236/');
+	socket = io.connect('http://130.185.155.130:32236/'),
+	guid = localStorage.getItem('guid'),
+	loginToken = localStorage.getItem('loginToken');
 if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
+
+if(!guid){
+	guid = createGuid();
+	localStorage.setItem('guid', guid);
+}
+
+if(!loginToken){
+	loginToken = createGuid();
+	localStorage.setItem('loginToken', loginToken);
+}
 
 document.body.addEventListener('touchmove', function(event) {
 	console.log(event.source);
@@ -21,17 +33,26 @@ var snapper = new Snap({
 	disable: 'right'
 });
 
+function sendStatusUpdate() {
+	if(loginToken.length === 0) return;
+	if(guid.length === 0) return;
+	var data = {
+		guid: guid,
+		loginToken: loginToken
+	}
+	socket.emit('status', data);
+}
+
+function logout() {
+	localStorage.removeItem('loginToken');
+	window.location.href = window.location.href;
+}
+
 function createGuid(){
 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 		var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
 		return v.toString(16);
 	});
-}
-
-var guid = localStorage.getItem('guid');
-if(!guid){
-	localStorage.setItem('guid', createGuid());
-	guid = localStorage.getItem('guid');
 }
 
 $('#name').val(localStorage.getItem('devicename'));
@@ -43,8 +64,24 @@ $('.menu-button').click(function(){
 	snapper.open('left');
 });
 
-socket.on('login', function(boolean){
+socket.on('status', function(boolean){
 	if(boolean) {
+		if($('.loading').length !== 0 && $('.splash').length !== 0) $('.login').remove();
+		if($('.loading').length !== 0 && $('.splash').length === 0) {
+			$('.loading').fadeOut(100);
+			setTimeout(function(){
+				$('.loading').remove();
+			}, 101);
+		}
+	} else {
+		if($('.loading').length == 0) window.location.href = window.location.href;
+	}
+});
+
+socket.on('login', function(key){
+	if(key !== 'login failed') {
+		localStorage.setItem('loginToken', key);
+		loginToken = key;
 		$('.loading').fadeOut(1000);
 		setTimeout(function(){
 			$('.loading').remove();
@@ -75,6 +112,11 @@ $('#login').submit(function(e){
 		socket.emit('login', data);
 	}
 });
+
+sendStatusUpdate();
+setInterval(function() {
+	sendStatusUpdate();
+}, 5000);
 
 setTimeout(function(){
 	$('.splash').fadeOut(1000);
