@@ -1,0 +1,37 @@
+body {
+	margin: 0px;
+	background-color: #ddd;
+}
+
+.loader {
+	background-color: #1c1b1e;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url('../images/vector/remote.svg');
+	background-size: 30% 30%;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 0;
+}
+
+.login {
+	position: absolute;
+	margin-top: -24.5px;
+	margin-left: -76.5px;
+	top: 50%;
+	left: 50%;
+	height: 49px;
+	width: 153px;
+}
+
+.login input {
+	width: 149px;
+	height: 16px;
+}
+
+.login input:first-child {
+	margin-bottom: 5px;
+}
