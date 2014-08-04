@@ -19,10 +19,6 @@ if(!guid){
 	guid = localStorage.getItem('guid');
 }
 
-$(window).on("scroll", function() {
-	if(window.pageYOffset < 0) alert(window.pageYOffset);
-})
-
 $('#name').val(localStorage.getItem('devicename'));
 if(navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	$('.login input[type="submit"]').addClass('ios');
