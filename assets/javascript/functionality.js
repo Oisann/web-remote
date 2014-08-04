@@ -1,4 +1,5 @@
-﻿var host = "oisann.github.io";
+﻿var host = "oisann.github.io",
+	socket = io.connect('http://185.3.135.178:32236/');
 if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
 
 document.body.addEventListener('touchmove', function(event) {
@@ -42,10 +43,22 @@ $('.menu-button').click(function(){
 	snapper.open('left');
 });
 
+socket.on('login', function(boolean){
+	if(boolean) {
+		$('.loading').fadeOut(1000);
+		setTimeout(function(){
+			$('.loading').remove();
+		}, 1000);
+	} else {
+		$('#passcode').val('');
+		$('#passcode').focus();
+	}
+});
+
 $('#login').submit(function(e){
 	e.preventDefault();
 	var name = $('#name').val(),
-		passcode = $('#passcode').val();
+		passcode = sha256_digest($('#passcode').val());
 	if(name.length <= 1 || passcode.length <= 1){
 		$('#name').val('Invalid name/passcode');
 		$('#passcode').val('');
@@ -54,7 +67,12 @@ $('#login').submit(function(e){
 		}, 1000);
 	} else {
 		localStorage.setItem('devicename', name);
-		//Send socket with name and passcode
+		var data = {
+			name: name,
+			passcode: passcode,
+			guid: guid
+		}
+		socket.emit('login', data);
 	}
 });
 
