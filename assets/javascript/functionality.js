@@ -2,7 +2,9 @@
 var socket = io.connect('http://130.185.155.130:32236/'),
 	guid = localStorage.getItem('guid'),
 	loginToken = localStorage.getItem('loginToken'),
-	newscroll = new IScroll('#content');
+	newscroll = new IScroll('#content', {
+    mouseWheel: true
+});
 
 if(!guid){
 	guid = createGuid();
@@ -10,6 +12,10 @@ if(!guid){
 }
 
 $('body').on('touchmove', function (e) {
+	e.preventDefault();
+});
+
+$(window).on('scroll', function (e) {
 	e.preventDefault();
 });
 
