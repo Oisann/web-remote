@@ -37,7 +37,7 @@ $('#login').submit(function(e){
 		$('#name').val('Invalid name/passcode');
 		$('#passcode').val('');
 		setTimeout(function(){
-			$('#name').val('');
+			$('#name').val(localStorage.getItem('devicename'));
 		}, 1000);
 	} else {
 		localStorage.setItem('devicename', name);

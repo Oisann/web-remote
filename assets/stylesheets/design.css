@@ -32,11 +32,11 @@
 
 .login {
 	position: absolute;
-	margin-top: -24.5px;
+	margin-top: -38px;
 	margin-left: -76.5px;
 	top: 50%;
 	left: 50%;
-	height: 49px;
+	height: 76px;
 	width: 153px;
 	z-index: 100;
 }
@@ -48,6 +48,12 @@
 
 .login input:first-child {
 	margin-bottom: 5px;
+}
+
+.login input[type="submit"] {
+	height: 22px;
+	width: 153px;
+	margin-top: 5px;
 }
 
 .panel {
