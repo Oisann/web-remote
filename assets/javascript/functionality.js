@@ -31,7 +31,6 @@ $('.menu-button').click(function(){
 
 $('#login').submit(function(e){
 	e.preventDefault();
-	alert('SENDT');
 	var name = $('#name').val(),
 		passcode = $('#passcode').val();
 	if(name.length <= 1 || passcode.length <= 1){
