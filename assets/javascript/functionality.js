@@ -1,8 +1,7 @@
-﻿var host = "oisann.github.io",
-	socket = io.connect('http://130.185.155.130:32236/'),
+﻿if (("oisann.github.io" == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
+var socket = io.connect('http://130.185.155.130:32236/'),
 	guid = localStorage.getItem('guid'),
 	loginToken = localStorage.getItem('loginToken');
-if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
 
 if(!guid){
 	guid = createGuid();
