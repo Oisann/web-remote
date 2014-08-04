@@ -23,7 +23,7 @@ $(function() {
 });
 
 var snapper = new Snap({
-	element: $('.panel'),
+	element: document.getElementById('panel'),
 	disable: 'right'
 });
 
