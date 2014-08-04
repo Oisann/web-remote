@@ -77,7 +77,8 @@ header {
 	left: 0;
 	right: 0;
 	height: 60px;
-	background-color: #fff;
+	background-color: #1c1b1e;
+	color: #fff;
 	z-index: 10;
 }
 
@@ -98,7 +99,7 @@ header h2 {
 
 .panel {
 	position: absolute;
-	background-color: #ddd;
+	background-color: #cccccc;
 	left: 0;
 	top: 0;
 	right: 0;

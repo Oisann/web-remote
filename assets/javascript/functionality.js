@@ -2,9 +2,7 @@
 var socket = io.connect('http://130.185.155.130:32236/'),
 	guid = localStorage.getItem('guid'),
 	loginToken = localStorage.getItem('loginToken'),
-	newscroll = new IScroll('#content', {
-    mouseWheel: true
-});
+	contentScroll = new IScroll('#content', { mouseWheel: true });
 
 if(!guid){
 	guid = createGuid();
