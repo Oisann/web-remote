@@ -1,6 +1,20 @@
 ﻿var host = "oisann.github.io";
 if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
 
+document.body.addEventListener('touchmove', function(event) {
+	console.log(event.source);
+	//if (event.source == document.body)
+	event.preventDefault();
+}, false);
+
+window.onresize = function() {
+	$(document.body).width(window.innerWidth).height(window.innerHeight);
+}
+
+$(function() {
+	window.onresize();
+});
+
 var snapper = new Snap({
 	element: $('.panel'),
 	disable: 'right'
