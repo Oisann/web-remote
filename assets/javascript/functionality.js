@@ -20,10 +20,6 @@ if(!guid){
 }
 
 $('#name').val(localStorage.getItem('devicename'));
-if($('#name').val() !== ''){
-	$('#name').attr('disabled', '');
-	$('#passcode').focus();
-}
 
 $('.menu-button').click(function(){
 	snapper.open('left');
@@ -49,5 +45,9 @@ setTimeout(function(){
 	$('.splash').fadeOut(1000);
 	setTimeout(function(){
 		$('.splash').remove();
+		if($('#name').val() !== ''){
+			$('#name').attr('disabled', '');
+			$('#passcode').focus();
+		}
 	}, 1000);
 }, 4000);
