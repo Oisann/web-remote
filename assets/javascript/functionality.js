@@ -9,11 +9,6 @@ if(!guid){
 	localStorage.setItem('guid', guid);
 }
 
-if(!loginToken){
-	loginToken = createGuid();
-	localStorage.setItem('loginToken', loginToken);
-}
-
 document.body.addEventListener('touchmove', function(event) {
 	console.log(event.source);
 	//if (event.source == document.body)
@@ -34,8 +29,7 @@ var snapper = new Snap({
 });
 
 function sendStatusUpdate() {
-	if(loginToken.length === 0) return;
-	if(guid.length === 0) return;
+	if(guid) return;
 	var data = {
 		guid: guid,
 		loginToken: loginToken
