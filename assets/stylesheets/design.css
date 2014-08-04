@@ -1,9 +1,19 @@
-body {
+﻿body {
 	margin: 0px;
-	background-color: #ddd;
 }
 
-.loader {
+.loading {
+	position: absolute;
+	background-color: #1c1b1e;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.splash {
+	position: absolute;
 	background-color: #1c1b1e;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -11,10 +21,9 @@ body {
 	background-size: 30% 30%;
 	height: 100%;
 	left: 0;
-	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 0;
+	z-index: 1000;
 }
 
 .login {
@@ -25,6 +34,7 @@ body {
 	left: 50%;
 	height: 49px;
 	width: 153px;
+	z-index: 100;
 }
 
 .login input {
@@ -34,4 +44,14 @@ body {
 
 .login input:first-child {
 	margin-bottom: 5px;
+}
+
+.panel {
+	position: absolute;
+	background-color: #ddd;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9;
 }
