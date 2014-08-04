@@ -19,6 +19,10 @@ if(!guid){
 	guid = localStorage.getItem('guid');
 }
 
+$('form #passcode').blur(function() {
+    $(this).closest('form').submit();
+});
+
 $('#name').val(localStorage.getItem('devicename'));
 if($('#name').val() !== ''){
 	$('#name').attr('disabled', '');
