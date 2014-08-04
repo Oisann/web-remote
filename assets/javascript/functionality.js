@@ -9,8 +9,8 @@ if(!guid){
 }
 
 document.body.addEventListener('touchmove', function(event) {
-	console.log(event.source);
-	if(event.source !== $('.content'))
+	alert(event.source);
+	if(event.source !== document.getElementById('content'))
 		event.preventDefault();
 }, false);
 
