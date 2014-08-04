@@ -3,6 +3,16 @@ body {
 	background-color: #ddd;
 }
 
+.portrait {
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 200px 190px;
+}
+
+.portrait-onready {
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 165px 150px;
+}
+
 .loader {
 	background-color: #1c1b1e;
 	background-position: center center;
