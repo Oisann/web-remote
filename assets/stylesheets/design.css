@@ -30,6 +30,10 @@
 	z-index: 1000;
 }
 
+#login {
+	text-align: center;
+}
+
 .login {
 	position: absolute;
 	margin-top: -38px;
