@@ -20,7 +20,7 @@ if(!guid){
 }
 
 $('#name').val(localStorage.getItem('devicename'));
-if(navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+if(navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	$('.login input[type="submit"]').addClass('ios');
 }
 
