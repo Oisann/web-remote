@@ -9,7 +9,7 @@ if(!guid){
 }
 
 document.body.addEventListener('touchmove', function(event) {
-	alert(event.target);
+	alert(event.target.id);
 	if(event.target !== document.getElementById('content'))
 		event.preventDefault();
 }, false);
