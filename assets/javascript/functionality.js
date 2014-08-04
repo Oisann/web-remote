@@ -20,6 +20,9 @@ if(!guid){
 }
 
 $('#name').val(localStorage.getItem('devicename'));
+if(navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+	$('.login input[type="submit"]').addClass('ios');
+}
 
 $('.menu-button').click(function(){
 	snapper.open('left');

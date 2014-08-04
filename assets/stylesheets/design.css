@@ -30,10 +30,6 @@
 	z-index: 1000;
 }
 
-#login {
-	text-align: center;
-}
-
 .login {
 	position: absolute;
 	margin-top: -38px;
@@ -58,6 +54,10 @@
 	height: 22px;
 	width: 153px;
 	margin-top: 5px;
+}
+
+.login input[type="submit"].ios {
+	width: 157px;
 }
 
 .panel {
