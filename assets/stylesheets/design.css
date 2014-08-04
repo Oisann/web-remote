@@ -11,11 +11,11 @@
 .loading {
 	position: absolute;
 	background-color: #1c1b1e;
-	height: 100%;
+	bottom: 0;
 	left: 0;
 	top: 0;
-	width: 100%;
-	z-index: 10;
+	right: 0;
+	z-index: 11;
 }
 
 .splash {
@@ -25,10 +25,10 @@
 	background-repeat: no-repeat;
 	background-image: url('../images/vector/remote.svg');
 	background-size: 30% 30%;
-	height: 100%;
+	bottom: 0;
 	left: 0;
 	top: 0;
-	width: 100%;
+	right: 0;
 	z-index: 1000;
 }
 
@@ -62,12 +62,56 @@
 	margin-left: 3px;
 }
 
+.side-menu, .side-left {
+	position: absolute;
+	z-index: 8;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: orange;
+}
+
+header {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	background-color: #fff;
+	z-index: 10;
+}
+
+header h2 {
+	margin-bottom: 0px;
+	text-align: center;
+	margin-top: -35px;
+}
+
+.menu-button {
+	display: inline-block;
+	text-align: center;
+	width: 50px;
+	height: 40px;
+	font-size: 27px;
+	margin-top: 25px;
+}
+
 .panel {
 	position: absolute;
 	background-color: #ddd;
-	height: 100%;
 	left: 0;
 	top: 0;
-	width: 100%;
+	right: 0;
+	bottom: 0;
 	z-index: 9;
+}
+
+.content {
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 100%;
+	overflow-y: scroll;
+	padding-left: 5px;
+	padding-top: 5px;
 }
