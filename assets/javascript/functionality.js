@@ -1,5 +1,5 @@
 ﻿if (("oisann.github.io" == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
-var socket = io.connect('http://130.185.155.130:32236/'),
+var socket = io.connect('http://oisann.asuscomm.com/'),
 	guid = localStorage.getItem('guid'),
 	loginToken = localStorage.getItem('loginToken'),
 	contentScroll = new IScroll('#content', { mouseWheel: true });
